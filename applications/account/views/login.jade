@@ -1,0 +1,20 @@
+extends ./layout/layout.jade
+
+block page-header
+
+
+block page-content
+    div.card.spacing-base.shadow-card
+        div.card-heading
+            strong 用户中心
+        div.card-content
+            form(action="/account/login", method="post")
+                .form-row
+                    label.margin.right-10 用户名/邮箱
+                    input.margin.right-10(type="text", name="appName")
+                .form-row
+                    label.margin.right-10 密码
+                    input.margin.right-10(type="password", name="appName")
+                .form-row.buttons
+                    button.btn.btn-primary 登录
+                    button.btn.btn-primary 注册新用户

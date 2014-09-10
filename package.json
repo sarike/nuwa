@@ -12,8 +12,8 @@
     "morgan": "~1.2.3",
     "serve-favicon": "~2.0.1",
     "debug": "~1.0.4",
-    "ejs": "~0.8.5",
     "less-middleware": "1.0.x",
-    "cookie-session": "^1.0.2"
+    "cookie-session": "^1.0.2",
+    "jade": "~1.6.0"
   }
 }

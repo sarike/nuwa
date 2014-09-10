@@ -1,0 +1,29 @@
+extends ./layout/layout.jade
+
+block page-content
+    div.card.spacing-base.shadow-card
+        div.card-heading
+            strong  加载应用
+            span.card-desc 加载一个新的应用
+        div.card-content
+            form(action="/admin/application/load", method="post")
+                input.margin.right-10(type="text", name="appName")
+                button.btn.btn-primary 加载
+
+    div.card.spacing-base.shadow-card
+        div.card-heading
+            strong  卸载应用
+            span.card-desc 卸载一个已经加载的应用，使其失效
+        div.card-content
+            form(action="/admin/application/unload", method="post")
+                input.margin.right-10(type="text", name="appName")
+                button.btn.btn-primary 卸载
+
+    div.card.spacing-base.shadow-card
+        div.card-heading
+            strong  刷新应用
+            span.card-desc 重新加载一个已经加载的应用，使其更新最新的代码
+        div.card-content
+            form(action="/admin/application/unload", method="post")
+                input.margin.right-10(type="text", name="appName")
+                button.btn.btn-primary 刷新

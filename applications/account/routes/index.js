@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/login', function(req, res) {
-    res.render('index', { title: 'Login Page aaa' });
+    res.render('login');
 });
 
 router.post('/login', function (req, res) {
