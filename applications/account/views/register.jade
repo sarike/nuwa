@@ -1,0 +1,21 @@
+extends ./layout/layout.jade
+
+block page-header
+
+
+block page-content
+    div.card.spacing-base.shadow-card
+        div.card-heading
+            strong 注册新用户
+        div.card-content
+            form(action="/account/register", method="post")
+                .form-row
+                    label.margin.right-10 邮箱
+                    .help-text= errors && errors['userName']
+                    input.margin.right-10(type="text", name="userName", value="#{userName || ''}")
+                .form-row
+                    label.margin.right-10 密码
+                    .help-text= errors && errors['passWord']
+                    input.margin.right-10(type="password", name="passWord", value="#{passWord || ''}")
+                .form-row.buttons
+                    button.btn.btn-primary 提交
