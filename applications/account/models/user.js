@@ -21,4 +21,48 @@ UserSchema.methods.setPassword = function (str) {
     this.password = utils.sha1(str);
 };
 
+// static methods
+
+UserSchema.statics.createUser = function (email, passWord, callback) {
+    var User = this;
+    this.findOne({email: email}, function (error, user) {
+
+        if (error) {
+            callback(error);
+            return;
+        }
+
+        if (!user) {
+            var userIns = new User({
+                email: email
+            });
+            userIns.setPassword(passWord);
+            userIns.save(function (error, user) {
+                if (error) {
+                    callback(error);
+                    return;
+                }
+                callback(null, null, user);
+            });
+        } else {
+            callback(null, "用户已经存在");
+        }
+    });
+
+};
+
+UserSchema.statics.validateUser = function (email, passWord, callback) {
+    if (!email || !passWord) {
+        callback(null);
+        return;
+    }
+    this.findOne({email: email, password: utils.sha1(passWord)}, function (error, user) {
+        if (error) {
+            callback(null);
+            return;
+        }
+        callback(user);
+    });
+};
+
 mongoose.model('User', UserSchema);

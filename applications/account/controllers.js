@@ -11,13 +11,27 @@ var validator = require('validator'),
 var User = models.User;
 
 exports.loginPage = function (req, res) {
+    var nextUrl = req.query.next;
+    if (nextUrl) {
+        req.session.nextUrl = nextUrl;
+    }
     res.render('login');
 };
 
-exports.doLogin = function (req, res, next) {
-    res.json({
-        name: "sunlei",
-        age: 26
+exports.doLogin = function (req, res) {
+    var email = req.body.email.trim(),
+        passWord = req.body.passWord.trim();
+
+    User.validateUser(email, passWord, function(user) {
+        if (user) {
+            req.session.user = user;
+            res.redirect(req.session.nextUrl || '/admin')
+        } else {
+            res.render('login', {
+                error: "用户名或者密码不正确",
+                email: email
+            })
+        }
     });
 };
 
@@ -26,43 +40,49 @@ exports.registerPage = function (req, res) {
 };
 
 exports.doRegister = function (req, res, next) {
-    var userName = req.param('userName').trim(),
+    var email = req.param('email').trim(),
         passWord = req.param('passWord').trim();
 
-    verifyRegisterInput(userName, passWord, function (errors) {
-        if (errors) {
+    verifyRegisterInput(email, passWord, function (messages) {
+        if (messages) {
             res.render("register", {
-                errors: errors,
-                userName: userName,
+                errors: messages,
+                email: email,
                 passWord: passWord
             })
         } else {
-            var user = new User({
-                username: userName
-            });
-            user.setPassword(passWord);
-            user.save(function (error) {
+            User.createUser(email, passWord, function(error, message, user) {
                 if (error) {
-                    next(error);
+                    return next(error);
+                }
+
+                if (message) {
+                    res.render('register', {
+                        errors: {
+                            email: message
+                        },
+                        email: email
+                    });
+                    return;
                 }
                 res.render('register_success', {
-                    userName: userName
+                    email: user.email
                 });
             });
         }
     });
 };
 
-function verifyRegisterInput (userName, passWord, callback) {
+function verifyRegisterInput (email, passWord, callback) {
     var errors = null;
 
-    if (!userName) {
+    if (!email) {
         errors = errors || {};
-        errors.userName = "请填写一个邮箱";
+        errors.email = "请填写一个邮箱";
     }
-    else if (!validator.isEmail(userName)) {
+    else if (!validator.isEmail(email)) {
         errors = errors || {};
-        errors.userName = "请填写正确的邮箱";
+        errors.email = "请填写正确的邮箱";
     }
 
     if (!passWord) {

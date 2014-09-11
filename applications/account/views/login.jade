@@ -1,20 +1,18 @@
 extends ./layout/layout.jade
 
-block page-header
-
-
 block page-content
     div.card.spacing-base.shadow-card
         div.card-heading
-            strong 用户中心
+            strong 登录
         div.card-content
             form(action="/account/login", method="post")
                 .form-row
                     label.margin.right-10 邮箱
-                    input.margin.right-10(type="text", name="appName")
+                    .help-text= error
+                    input.margin.right-10(type="text", name="email")
                 .form-row
                     label.margin.right-10 密码
-                    input.margin.right-10(type="password", name="appName")
+                    input.margin.right-10(type="password", name="passWord")
                 .form-row.buttons
                     button.btn.btn-primary 登录
                     a.btn(href="/account/register") 注册新用户

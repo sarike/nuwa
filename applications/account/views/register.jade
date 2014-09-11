@@ -1,8 +1,5 @@
 extends ./layout/layout.jade
 
-block page-header
-
-
 block page-content
     div.card.spacing-base.shadow-card
         div.card-heading
@@ -11,8 +8,8 @@ block page-content
             form(action="/account/register", method="post")
                 .form-row
                     label.margin.right-10 邮箱
-                    .help-text= errors && errors['userName']
-                    input.margin.right-10(type="text", name="userName", value="#{userName || ''}")
+                    .help-text= errors && errors['email']
+                    input.margin.right-10(type="text", name="email", value="#{email || ''}")
                 .form-row
                     label.margin.right-10 密码
                     .help-text= errors && errors['passWord']
