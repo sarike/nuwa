@@ -35,6 +35,11 @@ exports.doLogin = function (req, res) {
     });
 };
 
+exports.doLogout = function (req, res) {
+    req.session.destroy();
+    res.redirect('/account/login');
+};
+
 exports.registerPage = function (req, res) {
     res.render('register');
 };

@@ -4,23 +4,27 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var session = require('cookie-session');
+var session    = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 var core = require("./core");
+var config = require("./config");
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/nuwa');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-    // yay!
-    console.info("connection open");
-});
 
 var app = express();
 
 app.use(session({
-    secret : "nuwa"
+    secret: config.session_secret,
+    store: new MongoStore({
+        db : config.dbName
+    }),
+    key: 'sid',
+    resave: true,
+    saveUninitialized: true
 }));
 
 var am = core.applicationManager;

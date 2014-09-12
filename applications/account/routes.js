@@ -5,9 +5,10 @@ var router = express.Router();
 var User = models.User;
 
 router.get('/login', controllers.loginPage);
-router.post('/login', controllers.doLogin);
-
 router.get('/register', controllers.registerPage);
+
+router.post('/login', controllers.doLogin);
+router.post('/logout', controllers.doLoginout);
 router.post('/register', controllers.doRegister);
 
 module.exports = router;

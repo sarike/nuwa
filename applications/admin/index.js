@@ -11,7 +11,6 @@ app.use(express.static(path.join(BASE_PATH, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use('/', routes.homeRouter);
-app.use('/application', routes.appManageRouter);
+app.use('/', routes);
 
 module.exports = app;
