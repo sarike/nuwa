@@ -2,6 +2,11 @@ extends ./layout/layout.jade
 
 block page-content
     div.card.spacing-base.shadow-card
+        div.card-content
+            | 你好 #{currentUser.nickname || currentUser.email }，欢迎回来。
+            span.pull-right
+                a(href="/account/logout") 退出系统
+    div.card.spacing-base.shadow-card
         div.card-heading
             strong  加载应用
             span.card-desc 加载一个新的应用

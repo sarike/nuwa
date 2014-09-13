@@ -11,7 +11,7 @@ module.exports = {
 
     homePage: function (req, res) {
         var context = {
-            title: "Nuwa Admin"
+            title: "Nuwa 后台管理"
         };
         res.render('index', context);
     },

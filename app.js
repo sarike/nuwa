@@ -8,6 +8,7 @@ var session    = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var core = require("./core");
 var config = require("./config");
+var middleware = require("./middleware");
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/nuwa');
@@ -40,7 +41,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
+app.use(middleware.authUser);
+
 app.use("/", am.router);
+am.loadApplications("index");
 am.loadApplications("admin");
 am.loadApplications("account");
 
