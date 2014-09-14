@@ -17,16 +17,20 @@ module.exports = {
     },
 
     loadApplication: function (req, res) {
-        var appName = req.param("app_name");
-        core.applicationManager.loadApplications(appName);
-        var context = {
-            title: "Load Success"
-        };
-        res.render('index', context)
+        var appName = req.param("appName");
+        core.applicationManager.loadApplications(appName, function (messages) {
+            if (messages) {
+                res.render('index', {
+                    messages: messages
+                });
+            } else {
+                res.redirect('/admin');
+            }
+        });
     },
 
     unloadApplication: function (req, res) {
-        var appName = req.param("app_name");
+        var appName = req.param("appName");
         core.applicationManager.unLoadApplications(appName);
         var context = {
             title: "UnLoad Success"
@@ -35,7 +39,7 @@ module.exports = {
     },
 
     reloadApplication: function (req, res) {
-        var appName = req.param("app_name");
+        var appName = req.param("appName");
         core.applicationManager.reLoadApplications(appName);
         var context = {
             title: "ReLoad Success"

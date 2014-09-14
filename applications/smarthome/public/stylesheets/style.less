@@ -1,0 +1,76 @@
+@muted-color: #d3d3d3;
+@main-color: #000;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 14px "微软雅黑", Microsoft YaHei;
+    background-color: #E0E0E0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+div.container {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.page-header {
+    height: 88px;
+    line-height: 88px;
+    .container {
+        background-color: @main-color;
+        color: #FFF;
+        box-sizing: border-box;
+        padding: 0 15px;
+    }
+}
+
+.page-nav {
+    height: 38px;
+    line-height: 38px;
+    background-color: #FFF;
+    border-bottom: 3px solid @main-color;
+    ul {
+        padding: 0 20px;
+        list-style: none;
+        li {
+            float: left;
+            margin: 0 5px;
+        }
+        a {
+            padding: 3px 15px;
+            &.active,
+            &:hover {
+                background-color: #D14836;
+                color: #FFF;
+            }
+
+        }
+    }
+}
+
+.page-content{
+    padding-top: 20px;
+    background-color: #FFF;
+    .main-content {
+        min-height: 500px;
+        margin-right: 330px;
+        background-color: #FFF;
+        border-right: 1px solid @muted-color;
+    }
+    .sidebar {
+        width: 330px;
+        min-height: 500px;
+        box-sizing: border-box;
+        padding: 0 20px;
+        float: right;
+        background-color: #FFF;
+    }
+}

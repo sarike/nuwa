@@ -14,6 +14,7 @@ block page-content
             form(action="/admin/application/load", method="post")
                 input.margin.right-10(type="text", name="appName")
                 button.btn.btn-primary 加载
+                span.help-text.error #{messages && messages.loadMessage }
 
     div.card.spacing-base.shadow-card
         div.card-heading

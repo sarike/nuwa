@@ -40,14 +40,27 @@ module.exports = {
     /**
      * 加载一个 application
      * @param appName application 的名称，必须与所在的目录一致，并且位于 APP_PATH 中
+     * @param callback
      */
-    loadApplications: function (appName) {
-        if (appName in this.applications) return;
+    loadApplications: function (appName, callback) {
+        var messages = {};
+
+        if (!appName) {
+            messages.loadMessage = "请指定一个正确的应用名称";
+            callback(messages);
+            return;
+        }
+        if (appName in this.applications) {
+            messages.loadMessage = "应用已经加载，无需重复加载";
+            callback(messages);
+            return;
+        }
         var url = "/" + appName;
         var appModulePath = this.appModulePath(appName),
             application = require(appModulePath);
         this.router.use(url, application);
         this.applications[appName] = application;
+        callback();
     },
 
     /**

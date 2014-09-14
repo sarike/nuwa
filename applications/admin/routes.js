@@ -13,9 +13,9 @@ var express = require('express'),
 
 router.get('/', loginManager.loginRequired, controllers.homePage);
 
-router.post('/load', loginManager.loginRequired, controllers.loadApplication);
-router.post('/unload', loginManager.loginRequired, controllers.unloadApplication);
-router.post('/reload', loginManager.loginRequired, controllers.reloadApplication);
+router.post('/application/load', loginManager.loginRequired, controllers.loadApplication);
+router.post('/application/unload', loginManager.loginRequired, controllers.unloadApplication);
+router.post('/application/reload', loginManager.loginRequired, controllers.reloadApplication);
 
 module.exports = router;
 

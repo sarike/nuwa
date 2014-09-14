@@ -45,9 +45,17 @@ app.use(cookieParser());
 app.use(middleware.authUser);
 
 app.use("/", am.router);
-am.loadApplications("index");
-am.loadApplications("admin");
-am.loadApplications("account");
+
+["index",
+ "admin",
+ "smarthome",
+ "account"].forEach(function (appName) {
+    am.loadApplications(appName, function (messages) {
+        if (messages) {
+            console.error("Load " + appName + " application Error: ", messages);
+        }
+    })
+});
 
 // catch 404 and forward to error handler
 app.use("/", function(req, res, next) {
