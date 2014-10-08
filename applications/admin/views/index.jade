@@ -11,7 +11,7 @@ block page-content
             strong  加载应用
             span.card-desc 加载一个新的应用
         div.card-content
-            form(action="/admin/application/load", method="post")
+            form(action="/application/load", method="post")
                 input.margin.right-10(type="text", name="appName")
                 button.btn.btn-primary 加载
                 span.help-text.error #{messages && messages.loadMessage }
@@ -21,7 +21,7 @@ block page-content
             strong  卸载应用
             span.card-desc 卸载一个已经加载的应用，使其失效
         div.card-content
-            form(action="/admin/application/unload", method="post")
+            form(action="/application/unload", method="post")
                 input.margin.right-10(type="text", name="appName")
                 button.btn.btn-primary 卸载
 
@@ -30,6 +30,6 @@ block page-content
             strong  刷新应用
             span.card-desc 重新加载一个已经加载的应用，使其更新最新的代码
         div.card-content
-            form(action="/admin/application/unload", method="post")
+            form(action="/application/unload", method="post")
                 input.margin.right-10(type="text", name="appName")
                 button.btn.btn-primary 刷新

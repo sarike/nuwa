@@ -5,6 +5,7 @@ var router = express.Router();
 var User = models.User;
 
 // pages
+router.get('/', controllers.loginPage);
 router.get('/login', controllers.loginPage);
 router.get('/register', controllers.registerPage);
 
