@@ -1,5 +1,12 @@
 @muted-color: #d3d3d3;
 
+@font-face {
+    font-family: "TenoClockRegular";
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/TENOCLOCK-Regular.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +14,7 @@
 
 body {
     font: 14px "微软雅黑", Microsoft YaHei;
+    background-image: url("../images/bgs/giftly.png");
 }
 
 .page-header {
@@ -25,7 +33,7 @@ body {
 
 .card {
     padding: 10px;
-    border: 1px solid @muted-color;
+//    border: 1px solid @muted-color;
     .card-heading {
         padding-bottom: 10px;
         margin-bottom: 10px;
@@ -35,6 +43,11 @@ body {
             margin-left: 10px;
             color: @muted-color;
         }
+    }
+    .card-content {
+        font-size: 100px;
+        font-family: TenoClockRegular;
+        text-align: center;
     }
     &.shadow-card {
         -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
@@ -150,3 +163,5 @@ input {
 .pull-left {
     float: left;
 }
+
+
