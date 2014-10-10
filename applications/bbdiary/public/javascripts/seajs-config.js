@@ -17,6 +17,7 @@ seajs.config({
 
 seajs.data.debug && seajs.config({
     alias: {
-        jquery: "jquery/2.1.1/jquery"
+        jquery: "jquery/2.1.1/jquery",
+        underscore: "underscore/1.6.0/underscore"
     }
 });
