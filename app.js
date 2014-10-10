@@ -41,13 +41,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
 app.use(middleware.authUser);
+app.use(middleware.setConfig);
 
 app.use("/", am.router);
 
 ["index",
  "admin",
+ "bbdiary",
  "smarthome",
  "account"].forEach(function (appName) {
     am.loadApplications(appName, function (messages) {

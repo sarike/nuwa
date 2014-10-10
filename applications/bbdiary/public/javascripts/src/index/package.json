@@ -1,0 +1,25 @@
+{
+  "name": "index",
+  "version": "0.0.1",
+  "private": true,
+  "description": "BBDiary main module",
+  "keywords": [],
+  "homepage": "",
+  "author": "SL",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "licenses": "MIT",
+  "spm": {
+    "main": "index.js",
+    "dependencies": {
+    },
+    "devDependencies": {
+      "expect.js": "0.3.1"
+    }
+  }
+}

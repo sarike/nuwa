@@ -9,3 +9,9 @@ block page-content
         span.second 32
         span.colon :
         span.msecond 8
+
+
+    script(type="text/javascript").
+        seajs.use("index", function(index) {
+            index.init();
+        });
