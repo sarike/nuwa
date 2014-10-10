@@ -7,9 +7,9 @@ html(lang="zh-cn")
     head
         title #{title || 'test'}
         link(rel="stylesheet", href="/stylesheets/style.css")
-        script(type="text/javascript", src="/javascripts/libs/seajs/2.3.0/dist/sea.js")
+        script(type="text/javascript", src="/javascripts/spm_modules/seajs/2.3.0/dist/sea.js")
         - if (config.debug)
-            script(type="text/javascript", src="/javascripts/libs/seajs-wrap/1.0.1/dist/seajs-wrap.js")
+            script(type="text/javascript", src="/javascripts/spm_modules/seajs-wrap/1.0.1/dist/seajs-wrap.js")
         script(type="text/javascript").
             seajs.config({
                 debug: #{config.debug}

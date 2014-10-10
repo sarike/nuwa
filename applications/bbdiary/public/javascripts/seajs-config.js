@@ -8,12 +8,8 @@
 
 seajs.config({
 
-    alias: {
-        index: "index/0.0.1/index"
-    },
-
     // Sea.js 的基础路径
-    base: '/javascripts',
+    base: '/javascripts/spm_modules',
 
     // 文件编码
     charset: 'utf-8'
@@ -21,7 +17,6 @@ seajs.config({
 
 seajs.data.debug && seajs.config({
     alias: {
-        index: "index/index"
-    },
-    base: '/javascripts/src'
+        jquery: "jquery/2.1.1/jquery"
+    }
 });

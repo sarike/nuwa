@@ -12,6 +12,6 @@ block page-content
 
 
     script(type="text/javascript").
-        seajs.use("index", function(index) {
+        seajs.use(seajs.data.debug? "/javascripts/src/index/index.js" : "index/0.0.1/index", function(index) {
             index.init();
         });
