@@ -1,9 +1,11 @@
 extends ./layout/layout.jade
 
 block page-content
-    div.clock-wrapper
+    div.clock-wrapper.spacing-base
+    div.box.spacing-middle
+    div.box
 
-
+block javascript
     script(type="text/javascript").
         seajs.use(seajs.data.debug? "/javascripts/src/index/index.js" : "index/0.0.1/index", function(index) {
             index.init();

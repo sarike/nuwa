@@ -1,10 +1,18 @@
 @muted-color: #d3d3d3;
+//
+//@font-face {
+//    font-family: "DS-DIGII";
+//    font-style: normal;
+//    font-weight: 400;
+//    src: url(../fonts/DS-DIGII.TTF);
+//}
 
 @font-face {
-    font-family: "DS-DIGII";
+    font-family: 'Lemon';
     font-style: normal;
     font-weight: 400;
-    src: url(../fonts/DS-DIGII.TTF);
+    src: local('Lemon Regular'), local('Lemon-Regular'), url(../fonts/Lemon.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
 * {
@@ -30,20 +38,49 @@ body {
 
 .clock-wrapper {
     margin-top: 100px;
-    font-size: 100px;
-    font-family: DS-DIGII;
+    font-size: 80px;
+//    font-family: DS-DIGII;
+    font-family: 'Lemon', "微软雅黑", Microsoft YaHei;
     text-align: center;
+    .number {
+        color: #00A0D9;
+        text-shadow: 3px 3px 0px #A4C2D9, 7px 7px 0px #5c5f72;
+    }
     .second {
         display: inline-block;
         min-width: 120px;
     }
     .colon {
-        margin: 0 10px;
+        margin-right: 10px;
+        font-size: 22px;
+        color: #00A0D9;
+        text-shadow: 1px 1px 1px #494949;
     }
+}
+
+.box {
+    min-height: 150px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.album-wrapper {
+
+}
+
+.comments-wrapper {
+
 }
 
 .spacing-base {
     margin-bottom: 15px;
+}
+
+.spacing-middle {
+    margin-bottom: 20px;
 }
 
 .card {

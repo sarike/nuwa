@@ -1,13 +1,18 @@
 <div class="clock-wrapper">
-    <span class="hour">
+    <span class="number">
+        <%=day%>
+    </span>
+    <span class="colon">天</span>
+    <span class="number">
         <%=hour%>
     </span>
-    <span class="colon">:</span>
-    <span class="minute">
+    <span class="colon">时</span>
+    <span class="number">
         <%=minute%>
     </span>
-    <span class="colon">:</span>
-    <span class="second">
+    <span class="colon">分</span>
+    <span class="number second">
         <%=second%>
     </span>
+    <span class="colon">秒</span>
 </div>
