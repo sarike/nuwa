@@ -22,6 +22,7 @@
 
 body {
     font: 14px "微软雅黑", Microsoft YaHei;
+    color: #333;
     background-image: url("../images/bgs/giftly.png");
 }
 
@@ -31,13 +32,14 @@ body {
 }
 
 .container {
-    width: 860px;
+    max-width: 860px;
+    padding: 0 10px;
     margin: 0 auto;
 }
 
 
 .clock-wrapper {
-    margin-top: 100px;
+    margin: 50px 0;
     font-size: 80px;
 //    font-family: DS-DIGII;
     font-family: 'Lemon', "微软雅黑", Microsoft YaHei;
@@ -59,7 +61,7 @@ body {
 }
 
 .box {
-    min-height: 150px;
+    padding: 10px;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
@@ -67,12 +69,78 @@ body {
     box-shadow: 0 1px 1px rgba(0,0,0,0.2);
 }
 
-.album-wrapper {
-
+.box-heading {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #d7d8d9;
+    h2 {
+        font-size: 16px;
+        color: #00A0D9;
+        font-weight: normal;
+    }
 }
 
-.comments-wrapper {
+.box-footing {
+}
 
+.diary-box {
+    .box-heading {
+        .weather {
+            float: right;
+        }
+    }
+    .box-content {
+        line-height: 2;
+        .clear-fix;
+    }
+    .box-footing {
+        height: 30px;
+        position: relative;
+        &.middle {
+            margin: 0 -10px 10px;
+            border-bottom: 1px solid @muted-color;
+            .diary-author-source {
+                bottom: 0;
+                right: 10px;
+            }
+        }
+    }
+}
+
+.diary-images {
+    float: left;
+    text-align: center;
+//    display: inline-block;
+    img {
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        margin-top: 3px;
+        vertical-align: middle;
+    }
+
+    &.image-only img {
+        margin: 10px;
+    }
+}
+
+.diary-author-source {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    position: absolute;
+    right: 0;
+    bottom: -10px;
+//    border: solid @muted-color;
+//    border-width: 1px 1px 0 1px;
+    color: #FFF;
+    &.from-mama {
+        background-color: #FF4444;
+    }
+    &.from-dad {
+        background-color: #0078A3;
+    }
 }
 
 .spacing-base {
@@ -81,31 +149,6 @@ body {
 
 .spacing-middle {
     margin-bottom: 20px;
-}
-
-.card {
-    padding: 10px;
-//    border: 1px solid @muted-color;
-    .card-heading {
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid @muted-color;
-        .card-desc {
-            font-size: 12px;
-            margin-left: 10px;
-            color: @muted-color;
-        }
-    }
-    .card-content {
-        font-size: 100px;
-        font-family: TenoClockRegular;
-        text-align: center;
-    }
-    &.shadow-card {
-        -webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
-        -moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);
-        box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.1);;
-    }
 }
 
 .margin {
@@ -204,6 +247,14 @@ input {
     &::after {
         content:"";
         display: block;
+        clear: both;
+    }
+}
+
+.clear-fix {
+    &::after {
+        display: block;
+        content: "";
         clear: both;
     }
 }

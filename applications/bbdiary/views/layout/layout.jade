@@ -6,6 +6,9 @@ doctype html
 html(lang="zh-cn")
     head
         title #{title || 'test'}
+        meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=no;")
+        link(rel="stylesheet", href="http://cdn.staticfile.org/font-awesome/4.2.0/css/font-awesome.min.css")
+        link(rel="stylesheet", href="http://cdn.staticfile.org/weather-icons/1.2/css/weather-icons.min.css")
         link(rel="stylesheet", href="/stylesheets/style.css")
         script(type="text/javascript", id="seajsnode", src="/javascripts/spm_modules/seajs/2.3.0/dist/sea.js")
         script(type="text/javascript", src="/javascripts/spm_modules/seajs-text/1.1.0/dist/seajs-text.js")
