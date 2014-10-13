@@ -44,22 +44,10 @@ app.use(cookieParser());
 app.use(middleware.authUser);
 app.use(middleware.setConfig);
 
-app.use("/", am.router);
-
-["index",
- "admin",
- "bbdiary",
- "smarthome",
- "account"].forEach(function (appName) {
-    am.loadApplications(appName, function (messages) {
-        if (messages) {
-            console.error("Load " + appName + " application Error: ", messages);
-        }
-    })
-});
+app.use(am.router);
 
 // catch 404 and forward to error handler
-app.use("/", function(req, res, next) {
+app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -85,6 +73,22 @@ app.use(function(err, req, res, next) {
         message: err.message,
         error: {}
     });
+});
+
+
+[
+    "index",
+    "admin",
+    "bbdiary",
+    "smarthome",
+    "account"
+]
+.forEach(function (appName) {
+    am.loadApplications(appName, function (messages) {
+        if (messages) {
+            console.error("Load " + appName + " application Error: ", messages);
+        }
+    })
 });
 
 

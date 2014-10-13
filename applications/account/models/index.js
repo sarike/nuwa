@@ -1,6 +1,2 @@
-var mongoose = require('mongoose');
 
-// models
-require('./user');
-
-exports.User = mongoose.model('User');
+exports.User = require('./user').User;

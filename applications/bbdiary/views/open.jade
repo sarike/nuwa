@@ -1,0 +1,12 @@
+extends ./layout/layout.jade
+
+block page-content
+    div.page-header
+        h2
+            if isHaveOpened
+                | Have opened!
+            else
+                | Congratulations!
+
+    div.box
+        a.btn(href="/#{bbdiary._id}") 我的主页
