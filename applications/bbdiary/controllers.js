@@ -29,7 +29,7 @@ module.exports = {
 
             if (bbdiary) {
                 res.render("home", {
-                    bbdiary: bbdiary
+                    bbdiary: req.bbdiary
                 });
             } else {
                 next(); // 404
@@ -37,10 +37,10 @@ module.exports = {
         });
     },
 
-    adminPage: function (req, res, next) {
-        var babyId = req.param("baby_id");
-
-        res.render("admin");
+    adminPage: function (req, res) {
+        res.render("admin", {
+            bbdiary: req.bbdiary
+        });
     },
 
     openAction: function (req, res) {

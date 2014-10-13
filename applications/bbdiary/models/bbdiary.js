@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 
 var BBDiarySchema = mongoose.Schema({
     babyName: String,
-    babyBirthday:  { type: Date },
+    babyBirthday:  Date,
     babyGender: String,
     pageUrl: String,
-    openDate: String,
+    openDate: Date,
     creator: String,
     adminList: Array
 });
@@ -26,6 +26,7 @@ BBDiarySchema.statics.openBBDiary = function (creator, callback) {
         if (!bbdiary) {
             bbdiary = new BBDiary({
                 creator: creator,
+                openDate: Date.now(),
                 adminList: [creator]
             });
             bbdiary.save(function(error, bbdiary) {

@@ -1,5 +1,28 @@
 extends ./layout/layout.jade
 
 block page-content
-    div
-    |管理
+    div.page-header
+        h1  管理我的Baby主页
+
+    div.box.spacing-middle 欢迎回来，#{currentUser.nickname || currentUser.email}
+
+    div.box
+        ul.bbdiary-info-list
+            li
+                strong 宝贝姓名
+                span #{bbdiary.babyName}
+            li
+                strong 宝贝生日
+                span #{bbdiary.babyBirthday}
+            li
+                strong 宝贝性别
+                span #{bbdiary.babyGender}
+            li
+                strong 主页开通时间
+                span #{bbdiary.openDate}
+            li
+                strong 主页短网址
+                span #{bbdiary.pageUrl}
+            li
+                strong 管理员列表
+                span #{bbdiary.adminList.join(", ")}
